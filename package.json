@@ -2,8 +2,6 @@
   "name": "figma-map-maker",
   "version": "0.1.0",
   "main": "index.js",
-  "repository": "git@github.com:kawamurakazushi/figma-map-generator.git",
-  "author": "Kazushi Kawamura <wakaka2277@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^16.8.2",
@@ -24,7 +22,6 @@
   "dependencies": {
     "add": "^2.0.6",
     "constate": "^1.2.0",
-    "figma-styled-components": "git+https://github.com/kawamurakazushi/figma-styled-components.git",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "ts-loader": "^6.0.4",
