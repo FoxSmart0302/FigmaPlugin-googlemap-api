@@ -38,6 +38,7 @@ interface ShowPreviewAction {
 
 type Action = ChangeTabAction | HidePreviewAction | ShowPreviewAction;
 
+//  send("googleMap", googleStore.url, googleStore.options);
 const send = async (host: Tab, url: string, options: Options) => {
   const response = await fetch(url);
   const buffer = await response.arrayBuffer();

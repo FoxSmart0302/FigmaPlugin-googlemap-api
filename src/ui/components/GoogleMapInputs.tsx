@@ -108,17 +108,17 @@ const GoogleMapInputs = () => {
                 const val = e.target.value;
                 if (val !== "") {
                   dispatch({
-                    type: "INPUT_ZOOM",
+                    type: "INPUT_WIDTH",
                     value: Number(e.target.value),
                   });
                 } else {
                   dispatch({
-                    type: "INPUT_ZOOM",
+                    type: "INPUT_WIDTH",
                     value: "",
                   });
                 }
               }}
-              value={store.options.zoom}
+              value={store.options.width}
             />
           </div>
         </div>
@@ -131,40 +131,23 @@ const GoogleMapInputs = () => {
                 const val = e.target.value;
                 if (val !== "") {
                   dispatch({
-                    type: "INPUT_ZOOM",
+                    type: "INPUT_HEIGHT",
                     value: Number(e.target.value),
                   });
                 } else {
                   dispatch({
-                    type: "INPUT_ZOOM",
+                    type: "INPUT_HEIGHT",
                     value: "",
                   });
                 }
               }}
-              value={store.options.zoom}
+              value={store.options.height}
             />
           </div>
         </div>
       </div>
       <div>
-        <Label label="Custom Style"></Label>
-        <div style={{ padding: "4px 16px 0" }}>
-          <textarea
-            className="textarea"
-            onInput={(e: any) =>
-              dispatch({ type: "INPUT_JSON", value: e.target.value })
-            }
-            style={{ width: "100%", margin: 0 }}
-            rows={5}
-            placeholder="Paste Your JSON here."
-          >
-            {store.options.json}
-          </textarea>
-          {store.jsonIsInvalid && (
-            <p className="type--12-pos" style={{ color: "#f24822" }}>
-              Invalid JSON. Please check your format.
-            </p>
-          )}
+        <div style={{ padding: "4px 18px 0" }}>
           <p className="type--12-pos">
             Find at more here:{" "}
             <a target="__blank" href="https://snazzymaps.com/explore">
@@ -175,6 +158,23 @@ const GoogleMapInputs = () => {
             </a>
           </p>
         </div>
+        {/* <Label label="Custom Style"></Label>
+        <textarea
+          className="textarea"
+          onInput={(e: any) =>
+            dispatch({ type: "INPUT_JSON", value: e.target.value })
+          }
+          style={{ width: "100%", margin: 0 }}
+          rows={5}
+          placeholder="Paste Your JSON here."
+        >
+          {store.options.json}
+        </textarea>
+        {store.jsonIsInvalid && (
+          <p className="type--12-pos" style={{ color: "#f24822" }}>
+            Invalid JSON. Please check your format.
+          </p>
+        )} */}
       </div>
     </div>
   );

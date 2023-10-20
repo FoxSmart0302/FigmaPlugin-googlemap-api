@@ -10,6 +10,8 @@ interface GoogleMapOptions {
   marker: boolean;
   zoom: number | "";
   json: string;
+  width: number | "";
+  height: number | "";
 }
 
 interface InternalStore {
@@ -37,6 +39,15 @@ interface InputMarkerAction {
   value: boolean;
 }
 
+interface InputWidthAction {
+  type: "INPUT_WIDTH";
+  value: number | "";
+}
+
+interface InputHeightAction {
+  type: "INPUT_HEIGHT";
+  value: number | "";
+}
 interface InputJsonAction {
   type: "INPUT_JSON";
   value: string;
@@ -56,6 +67,8 @@ type Action =
   | InputAddressAction
   | InputZoomAction
   | InputMarkerAction
+  | InputWidthAction
+  | InputHeightAction
   | InputMapTypeAction
   | InputJsonAction
   | InputOptionsAction
@@ -66,10 +79,12 @@ const generateUrl = ({
   type,
   marker,
   zoom,
-  json
+  json,
+  width,
+  height
+
 }: GoogleMapOptions) => {
   const encodedAddress = encodeURIComponent(address);
-
   // if there is no address return a default image.
   if (encodedAddress === "") {
     return "https://maps.googleapis.com/maps/api/staticmap?scale=2&center=San%20Francisco%20US&zoom=15&size=600x600&maptype=roadmap&key=AIzaSyDBozHahWrNFkc5dFmngpNGGIMygj7OnPM";
@@ -111,7 +126,16 @@ const useGoogleMap = (): [Store, Dispatch] => {
             ...state,
             options: { ...state.options, marker: action.value }
           };
-
+        case "INPUT_WIDTH":
+          return {
+            ...state,
+            options: { ...state.options, width: action.value }
+          };
+        case "INPUT_HEIGHT":
+          return {
+            ...state,
+            options: { ...state.options, height: action.value }
+          };
         case "INPUT_JSON":
           return {
             ...state,
@@ -146,7 +170,9 @@ const useGoogleMap = (): [Store, Dispatch] => {
         type: "roadmap",
         marker: false,
         zoom: 15,
-        json: ""
+        json: "",
+        width: 800,
+        height: 600,
       },
       url:
         "https://maps.googleapis.com/maps/api/staticmap?scale=2&center=San%20Francisco%20US&zoom=15&size=600x600&maptype=roadmap&key=AIzaSyDBozHahWrNFkc5dFmngpNGGIMygj7OnPM"
@@ -180,6 +206,8 @@ const useGoogleMap = (): [Store, Dispatch] => {
     f();
   }, [
     store.options.json,
+    store.options.width,
+    store.options.height,
     store.options.marker,
     store.options.marker,
     store.options.type,
