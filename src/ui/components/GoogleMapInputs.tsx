@@ -46,7 +46,7 @@ const GoogleMapInputs = () => {
               ) {
                 dispatch({
                   type: "INPUT_MAP_TYPE",
-                  value
+                  value,
                 });
               }
             }}
@@ -55,7 +55,7 @@ const GoogleMapInputs = () => {
               { label: "Roadmap", value: "roadmap" },
               { label: "Satellite", value: "satellite" },
               { label: "Hybrid", value: "hybrid" },
-              { label: "Terrain", value: "terrain" }
+              { label: "Terrain", value: "terrain" },
             ]}
           ></Select>
         </div>
@@ -71,12 +71,12 @@ const GoogleMapInputs = () => {
               if (val !== "") {
                 dispatch({
                   type: "INPUT_ZOOM",
-                  value: Number(e.target.value)
+                  value: Number(e.target.value),
                 });
               } else {
                 dispatch({
                   type: "INPUT_ZOOM",
-                  value: ""
+                  value: "",
                 });
               }
             }}
@@ -92,12 +92,60 @@ const GoogleMapInputs = () => {
             console.log(e.target.checked);
             dispatch({
               type: "INPUT_MARKER",
-              value: e.target.checked
+              value: e.target.checked,
             });
           }}
         />
       </div>
       <Line />
+      <div className="d-flex">
+        <div>
+          <Label label="Width"></Label>
+          <div style={{ padding: "4px 8px 0" }}>
+            <Input
+              type="number"
+              onChange={(e: any) => {
+                const val = e.target.value;
+                if (val !== "") {
+                  dispatch({
+                    type: "INPUT_ZOOM",
+                    value: Number(e.target.value),
+                  });
+                } else {
+                  dispatch({
+                    type: "INPUT_ZOOM",
+                    value: "",
+                  });
+                }
+              }}
+              value={store.options.zoom}
+            />
+          </div>
+        </div>
+        <div>
+          <Label label="Height"></Label>
+          <div style={{ padding: "4px 8px 0" }}>
+            <Input
+              type="number"
+              onChange={(e: any) => {
+                const val = e.target.value;
+                if (val !== "") {
+                  dispatch({
+                    type: "INPUT_ZOOM",
+                    value: Number(e.target.value),
+                  });
+                } else {
+                  dispatch({
+                    type: "INPUT_ZOOM",
+                    value: "",
+                  });
+                }
+              }}
+              value={store.options.zoom}
+            />
+          </div>
+        </div>
+      </div>
       <div>
         <Label label="Custom Style"></Label>
         <div style={{ padding: "4px 16px 0" }}>

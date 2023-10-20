@@ -72,11 +72,11 @@ const generateUrl = ({
 
   // if there is no address return a default image.
   if (encodedAddress === "") {
-    return "https://maps.googleapis.com/maps/api/staticmap?scale=2&center=San%20Francisco%20US&zoom=15&size=600x600&maptype=roadmap&key=AIzaSyCOHu6yxeJ1XAG6Rji_9j6kIaJVtUbrddk";
+    return "https://maps.googleapis.com/maps/api/staticmap?scale=2&center=San%20Francisco%20US&zoom=15&size=600x600&maptype=roadmap&key=AIzaSyDBozHahWrNFkc5dFmngpNGGIMygj7OnPM";
   }
 
   const url =
-    `https://maps.googleapis.com/maps/api/staticmap?scale=2&center=${encodedAddress}&zoom=${zoom}&size=600x600&maptype=${type}&key=AIzaSyCOHu6yxeJ1XAG6Rji_9j6kIaJVtUbrddk` +
+    `https://maps.googleapis.com/maps/api/staticmap?scale=2&center=${encodedAddress}&zoom=${zoom}&size=600x600&maptype=${type}&key=AIzaSyDBozHahWrNFkc5dFmngpNGGIMygj7OnPM` +
     (marker ? `&markers=color:red|${encodedAddress}` : "") +
     (json ? convert(json) : "");
 
@@ -149,7 +149,7 @@ const useGoogleMap = (): [Store, Dispatch] => {
         json: ""
       },
       url:
-        "https://maps.googleapis.com/maps/api/staticmap?scale=2&center=San%20Francisco%20US&zoom=15&size=600x600&maptype=roadmap&key=AIzaSyCOHu6yxeJ1XAG6Rji_9j6kIaJVtUbrddk"
+        "https://maps.googleapis.com/maps/api/staticmap?scale=2&center=San%20Francisco%20US&zoom=15&size=600x600&maptype=roadmap&key=AIzaSyDBozHahWrNFkc5dFmngpNGGIMygj7OnPM"
     }
   );
 

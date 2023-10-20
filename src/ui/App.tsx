@@ -255,18 +255,7 @@ const App = () => {
             }}
           >
             Preview
-            <a
-              href="https://www.buymeacoffee.com/kawamurakazushi"
-              target="_blank"
-            >
-              <img
-                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
-                alt="Buy Me A Coffee"
-                style={{ width: "100px", marginRight: 8 }}
-              />
-            </a>
           </div>
-
           <img
             style={{ width: "100%", height: 500 }}
             src={

@@ -33,7 +33,18 @@
     url("https://rsms.me/inter/font-files/Inter-SemiBold.woff2?v=3.7")
       format("woff");
 }
-
+.inkDEb,
+.iURvkc{
+  border:1px solid #d0cece!important;
+}
+.inkDEb .sc-iwsKbI{
+  margin-left: auto;
+  margin-right: 0;
+}
+.kSJsrN{
+  width: 13px;
+  height: 13px;
+}
 .icon {
   width: 32px;
   height: 32px;
@@ -63,7 +74,9 @@
 .icon--button:hover {
   background-color: rgba(0, 0, 0, 0.06);
 }
-
+.d-flex{
+  display: flex;
+}
 .icon--button:active {
   border: 2px solid #18a0fb;
   background-color: rgba(0, 0, 0, 0.06);
@@ -369,7 +382,7 @@
 
 .button--secondary {
   color: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border: 1px solid #d0cece;
   background-color: #ffffff;
   font-family: "Inter", sans-serif;
   font-weight: 500;
@@ -386,7 +399,7 @@
 
 .button--secondary:disabled {
   color: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid #d0cece;
 }
 
 .button--secondary-destructive {
@@ -429,7 +442,7 @@
   margin: 1px 0 1px 0;
   padding: 8px 4px 8px 7px;
   color: rgba(0, 0, 0, 0.8);
-  border: 1px solid transparent;
+  border: 1px solid #d0cece;
   border-radius: 2px;
   outline: none;
   background-color: #ffffff;
@@ -437,7 +450,7 @@
 
 .input:hover {
   color: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid black;
 }
 
 .input:active,
@@ -520,7 +533,7 @@
   padding: 8px 4px 8px 0;
   text-indent: 32px;
   color: rgba(0, 0, 0, 0.8);
-  border: 1px solid transparent;
+  border: 1px solid #d0cece;
   border-radius: 2px;
   outline: none;
   background-color: #ffffff;
@@ -528,7 +541,7 @@
 
 .input-icon__input:hover {
   color: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid black;
 }
 
 .input-icon__input:active,
@@ -578,7 +591,7 @@
 }
 
 .input-icon__input:disabled:hover {
-  border: 1px solid transparent;
+  border: 1px solid black;
 }
 
 .textarea {
@@ -600,7 +613,7 @@
   padding: 7px 4px 7px 7px;
   resize: none;
   color: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid #d0cece;
   border-radius: 2px;
   outline: none;
   background-color: #ffffff;
@@ -671,7 +684,7 @@
   padding: 6px 0 6px 8px;
   cursor: default;
   color: rgba(0, 0, 0, 0.8);
-  border: 1px solid transparent;
+  border: 1px solid #d0cece;
   border-radius: 2px;
   background-color: #ffffff;
   font-family: "Inter", sans-serif;
@@ -1039,7 +1052,7 @@
   padding: 0 16px 0 16px;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid #d0cece;
   border-radius: 5px;
   background-color: #222222;
   -webkit-box-shadow: 0 5px 17px rgba(0, 0, 0, 0.2),
