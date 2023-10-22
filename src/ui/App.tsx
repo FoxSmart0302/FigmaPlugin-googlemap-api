@@ -40,12 +40,20 @@ type Action = ChangeTabAction | HidePreviewAction | ShowPreviewAction;
 
 //  send("googleMap", googleStore.url, googleStore.options);
 const send = async (host: Tab, url: string, options: Options) => {
+  console.log("options", options);
+  console.log("host", host);
+
+  let init_width = options.width;
+  let init_height = options.height;
+  console.log("init_width_height:", init_width, init_height);
   const response = await fetch(url);
   const buffer = await response.arrayBuffer();
   parent.postMessage(
     {
       pluginMessage: {
         type: "image",
+        width: init_width,
+        height: init_height,
         image: new Uint8Array(buffer),
         options: {
           [host]: options,

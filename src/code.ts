@@ -4,7 +4,7 @@ const optionsKey = "options";
 const previewKey = "preview";
 
 const width = 800;
-const height = 560;
+const height = 600;
 const collapsedWidth = 300;
 
 const main = () => {
@@ -129,7 +129,7 @@ figma.ui.onmessage = msg => {
       const { x, y } = figma.viewport.center;
       node.x = x;
       node.y = y;
-      node.resize(500, 500);
+      node.resize(msg.width, msg.height);
       figma.currentPage.selection = [node];
       figma.currentPage.appendChild(node);
     }
@@ -140,7 +140,7 @@ figma.ui.onmessage = msg => {
       if (frame.type === "FRAME") {
         const node = fillMap(figma.createRectangle());
         figma.currentPage.selection = [node];
-        node.resize(500, 500);
+        node.resize(msg.width, msg.height);
         frame.appendChild(node);
       }
     }

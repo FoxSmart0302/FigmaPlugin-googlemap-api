@@ -20,6 +20,8 @@ interface MapboxOptions {
   zoom: number;
   bearing: number;
   pitch: number;
+  width: number;
+  height: number;
 }
 
 interface InternalStore {
@@ -172,7 +174,9 @@ const useMapbox = (): [Store, Dispatch] => {
         zoom: 12,
         type: "streets-v11",
         bearing: 0,
-        pitch: 0
+        pitch: 0,
+        width: 800, 
+        height: 600
       },
       url: ""
     }
