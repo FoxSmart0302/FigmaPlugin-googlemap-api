@@ -1,20 +1,63 @@
 import * as React from "react";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Select, Input, Checkbox } from "figma-styled-components";
 
 import { useGoogleMapContext } from "../hooks/useGoogleMap";
 import { Line } from "./Line";
 import { Label } from "./Label";
+// import { Autocomplete } from "react-google-autocomplete";
 
 const GoogleMapInputs = () => {
   const [store, dispatch] = useGoogleMapContext();
-
+  const [zoomLevel, setZoomLevel] = useState(store.options.zoom);
+  const [address, setAddress] = useState("");
   const input = useRef<HTMLInputElement>(null);
+  
+
   useEffect(() => {
     if (input.current) {
       input.current.focus();
     }
   }, []);
+
+  useEffect(() => {
+    const handleScroll = (event: { deltaY: number }) => {
+      if (event.deltaY > 0) {
+        // Zoom out
+        setZoomLevel((prevZoomLevel: number) => {
+          if (prevZoomLevel > 0) {
+            return prevZoomLevel - 1;
+          } else {
+            return prevZoomLevel;
+          }
+        });
+      } else {
+        // Zoom in
+        setZoomLevel((prevZoomLevel: number) => {
+          if(prevZoomLevel < 21){
+            return prevZoomLevel + 1
+          } else{
+            return prevZoomLevel
+          }
+        });
+      }
+    };
+
+    // Add event listener to the component
+    window.addEventListener("wheel", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("wheel", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    dispatch({
+      type: "INPUT_ZOOM",
+      value: zoomLevel,
+    });
+  }, [zoomLevel]);
 
   return (
     <div>
@@ -24,11 +67,14 @@ const GoogleMapInputs = () => {
           <input
             ref={input}
             className="input"
-            placeholder="Input Address here:"
-            value={store.options.address}
-            onInput={(e: any) =>
-              dispatch({ type: "INPUT_ADDRESS", value: e.target.value })
-            }
+            id="autocomplete-input"
+            placeholder="Search for a location"
+            value={address}
+            onChange={(e) => {setAddress(e.target.value)}}
+            // value={store.options.address}
+            // onInput={(e: any) =>
+            //   dispatch({ type: "INPUT_ADDRESS", value: e.target.value })
+            // }
           />
         </div>
       </div>
@@ -68,6 +114,7 @@ const GoogleMapInputs = () => {
             type="number"
             onChange={(e: any) => {
               const val = e.target.value;
+              if (val < 0) return;
               if (val !== "") {
                 dispatch({
                   type: "INPUT_ZOOM",

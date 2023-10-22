@@ -98,7 +98,7 @@ figma.ui.onmessage = msg => {
         node.setPluginData(optionsKey, JSON.stringify(msg.options));
       }
 
-      const image = figma.createImage(msg.image);
+      let image = figma.createImage(msg.image);
 
       node.fills = [
         {
@@ -132,6 +132,7 @@ figma.ui.onmessage = msg => {
       node.resize(msg.width, msg.height);
       figma.currentPage.selection = [node];
       figma.currentPage.appendChild(node);
+      figma.viewport.scrollAndZoomIntoView([node]); // Apply scrollAndZoomIntoView
     }
 
     // Create Map if 1 frame is selected
@@ -142,6 +143,7 @@ figma.ui.onmessage = msg => {
         figma.currentPage.selection = [node];
         node.resize(msg.width, msg.height);
         frame.appendChild(node);
+        figma.viewport.scrollAndZoomIntoView([node]); // Apply scrollAndZoomIntoView
       }
     }
     figma.closePlugin();

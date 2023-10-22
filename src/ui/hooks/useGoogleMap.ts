@@ -79,6 +79,7 @@ const generateUrl = ({
   type,
   marker,
   zoom,
+  // draggagle,
   json,
   width,
   height
@@ -91,7 +92,14 @@ const generateUrl = ({
   }
 
   const url =
-    `https://maps.googleapis.com/maps/api/staticmap?scale=2&center=${encodedAddress}&zoom=${zoom}&size=600x600&maptype=${type}&key=AIzaSyDBozHahWrNFkc5dFmngpNGGIMygj7OnPM` +
+    `https://maps.googleapis.com/maps/api/staticmap?` +
+    `scale=2` +
+    `&center=${encodedAddress}` +
+    `&zoom=${zoom}` +
+    `&size=${width}x${height}` +
+    `&maptype=${type}` +
+    // `&viewport=${viewport}` +
+    `&key=AIzaSyDBozHahWrNFkc5dFmngpNGGIMygj7OnPM` +
     (marker ? `&markers=color:red|${encodedAddress}` : "") +
     (json ? convert(json) : "");
 

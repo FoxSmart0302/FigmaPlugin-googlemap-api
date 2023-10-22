@@ -265,6 +265,7 @@ const App = () => {
           >
             Preview
           </div>
+          {/* <div style={{ width: "100%", height: 500 }}></div> */}
           <img
             style={{ width: "100%", height: 500 }}
             src={

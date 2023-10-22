@@ -22,8 +22,11 @@
   "dependencies": {
     "add": "^2.0.6",
     "constate": "^1.2.0",
+    "figma-styled-components": "2.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-google-autocomplete": "^2.7.3",
+    "styled-components": "^6.1.0",
     "ts-loader": "^6.0.4",
     "use-debounce": "^3.0.0",
     "webpack": "^4.39.3",
